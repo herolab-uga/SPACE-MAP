@@ -68,6 +68,8 @@ The package has been tested on both ROS Noetic for both simulated and hardware T
 
 ## ROS Topics
 robot_namespace = {tb3_0, tb3_1, tb3_2, tb3_3, tb3_4, tb3_5}
+target_name = namespace of robots which is in field-of-view
+
 - `${robot_namespace}/odom`: Provides odometry data.
 - `${robot_namespace}/cmd_vel`: Issues velocity commands.
 - `${robot_namespace}/cloud_map`: Outputs RTABMap individual maps.
@@ -78,5 +80,23 @@ robot_namespace = {tb3_0, tb3_1, tb3_2, tb3_3, tb3_4, tb3_5}
 - `/total_cloud_map`: Outputs spatial merged map.
 - `/total_map`: Outputs merged 2D grid map.
 - `/frontier_marker`: 3D & 2D Spatial Frontiers
-- `/{target_name}/masker/masked_image_raw`: Feature masker
+- `/{target_name}/masker/masked_image_raw`: Features are masked and republished for mapping.
+
+## Launch
+afsd
+
+    ```bash
+    roslaunch <package_name> 3_house.launch
+    ```
+    
+## Contributions
+
+- **Ehsan Latif** - PhD Candidate
+- **Dr. Ramviyas Parasuraman** - Lab Director
+
+### [Heterogeneous Robotics Lab](https://hero.uga.edu/)
+School of Computing, University of Georgia.
+
+For further information, please contact Dr. Ramviyas Parasuraman at [ramviyas@uga.edu](mailto:ramviyas@uga.edu). 
+
 
