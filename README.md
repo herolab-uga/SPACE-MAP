@@ -91,7 +91,7 @@ afsd
     
 ## Contributions
 
-- **Ehsan Latif** - PhD Candidate
+- **Sai Krishna Ghanta** - PhD Candidate
 - **Dr. Ramviyas Parasuraman** - Lab Director
 
 ### [Heterogeneous Robotics Lab](https://hero.uga.edu/)
