@@ -1,7 +1,7 @@
 # SPACE
 This repository contains the ROS package that implements the works from the algorithm "SPACE: 3D Spatial Co-operation and Exploration Framework for Robust Mapping and Coverage with Multi-Robot Systems". The following figure shows the conceptual overview of SPACE:
 
-![](Images and Videos/Overiew.png)
+![](Images/Overiew.png)
 
 
 ### Publication/Citation
@@ -9,7 +9,7 @@ If you use this work, please cite our paper:
 Preprint available at 
 
 ### Experiemental Demonstration and Video
-![](images)
+![](Images/Final Compressed Video.mp4)
 ## 1. Requirements & Environment Setup
 The package has been tested on both ROS Noetic for both simulated and hardware Turtlebot3 robot (waffle) & Turtlebot2 (2e and 2i). The following requirements are needed before installing the package:
 
