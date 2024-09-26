@@ -1,7 +1,7 @@
 # SPACE
 This repository contains the ROS package that implements the works from the algorithm "SPACE: 3D Spatial Co-operation and Exploration Framework for Robust Mapping and Coverage with Multi-Robot Systems". The following figure shows the conceptual overview of SPACE:
 
-![](images)
+![](Images and Videos/Overiew.png)
 
 
 ### Publication/Citation
