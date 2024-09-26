@@ -9,10 +9,10 @@ If you use this work, please cite our paper:
 Preprint available at 
 
 ### Experiemental Demonstration and Video
-<video width="320" height="240" controls>
-  <source src="Images/Video.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
+[![Watch the video]([https://raw.githubusercontent.com/yourusername/yourrepository/main/assets/thumbnail.jpg](https://github.com/herolab-uga/SPACE-MAP/blob/288caa76b11fba969f9577ec1cef0f4017aecc5d/Images/Overview.png
+))]([https://raw.githubusercontent.com/yourusername/yourrepository/main/assets/video.mp4](https://github.com/herolab-uga/SPACE-MAP/blob/288caa76b11fba969f9577ec1cef0f4017aecc5d/Images/Video.mp4))
+
 
 ## 1. Requirements & Environment Setup
 The package has been tested on both ROS Noetic for both simulated and hardware Turtlebot3 robot (waffle) & Turtlebot2 (2e and 2i). The following requirements are needed before installing the package:
