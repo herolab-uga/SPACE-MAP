@@ -10,8 +10,7 @@ Preprint available at
 
 ### Experiemental Demonstration and Video
 
-[![Watch the video]([https://raw.githubusercontent.com/yourusername/yourrepository/main/assets/thumbnail.jpg](https://github.com/herolab-uga/SPACE-MAP/blob/288caa76b11fba969f9577ec1cef0f4017aecc5d/Images/Overview.png
-))]([https://raw.githubusercontent.com/yourusername/yourrepository/main/assets/video.mp4](https://github.com/herolab-uga/SPACE-MAP/blob/288caa76b11fba969f9577ec1cef0f4017aecc5d/Images/Video.mp4))
+[![Watch the video]([https://raw.githubusercontent.com/yourusername/yourrepository/main/assets/thumbnail.jpg](https://github.com/herolab-uga/SPACE-MAP/blob/288caa76b11fba969f9577ec1cef0f4017aecc5d/Images/Overview.png))]([https://raw.githubusercontent.com/yourusername/yourrepository/main/assets/video.mp4](https://github.com/herolab-uga/SPACE-MAP/blob/288caa76b11fba969f9577ec1cef0f4017aecc5d/Images/Video.mp4))
 
 
 ## 1. Requirements & Environment Setup
