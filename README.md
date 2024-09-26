@@ -9,7 +9,7 @@ If you use this work, please cite our paper:
 Preprint available at 
 
 ### Experiemental Demonstration and Video
-![](Images/Final Compressed Video.mp4)
+![](Images/Video.mp4)
 ## 1. Requirements & Environment Setup
 The package has been tested on both ROS Noetic for both simulated and hardware Turtlebot3 robot (waffle) & Turtlebot2 (2e and 2i). The following requirements are needed before installing the package:
 
@@ -98,6 +98,7 @@ afsd
 
 ### [Heterogeneous Robotics Lab](https://hero.uga.edu/)
 School of Computing, University of Georgia.
+![](Images/Lab.png)
 
 For further information, please contact Dr. Ramviyas Parasuraman at [ramviyas@uga.edu](mailto:ramviyas@uga.edu). 
 
