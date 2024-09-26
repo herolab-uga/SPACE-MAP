@@ -9,8 +9,8 @@ If you use this work, please cite our paper:
 Preprint available at 
 
 ### Experiemental Demonstration and Video
+https://github.com/user-attachments/assets/9c5ea52c-aa25-4c85-b8a9-539fb61f3168
 
-[![Watch the video]([https://raw.githubusercontent.com/yourusername/yourrepository/main/assets/video.mp4](https://github.com/herolab-uga/SPACE-MAP/blob/288caa76b11fba969f9577ec1cef0f4017aecc5d/Images/Video.mp4))
 
 
 ## 1. Requirements & Environment Setup
