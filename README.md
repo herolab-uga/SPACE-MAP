@@ -98,6 +98,8 @@ afsd
 
 ### [Heterogeneous Robotics Lab](https://hero.uga.edu/)
 School of Computing, University of Georgia.
+
+
 ![](Images/Lab.png)
 
 For further information, please contact Dr. Ramviyas Parasuraman at [ramviyas@uga.edu](mailto:ramviyas@uga.edu). 
