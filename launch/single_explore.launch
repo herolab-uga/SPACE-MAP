@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Launch Gazebo -->
+  <arg name="model" default="waffle" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="first_tb3" default="tb3_0"/>
+  <arg name="first_tb3_x_pos" default=" -1.0"/>
+  <arg name="first_tb3_y_pos" default=" -0.5"/>
+  <arg name="first_tb3_z_pos" default=" 0.0"/>
+  <arg name="first_tb3_yaw"   default=" 1.57"/>
+  <arg name="assign_rate" default="2"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find turtlebot3_gazebo)/worlds/turtlebot3_stage_4.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="false"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="verbose" value="false"/>
+  </include>
+   
+  <group ns = "$(arg first_tb3)">
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+    <param name="tf_prefix" value="$(arg first_tb3)" />
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+      <param name="publish_frequency" type="double" value="50.0" />
+    </node>
+    <node name="spawn_urdf_0" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg first_tb3) -x $(arg first_tb3_x_pos) -y $(arg first_tb3_y_pos) -z $(arg first_tb3_z_pos) -Y $(arg first_tb3_yaw) -param robot_description" />
+  </group>
+
+  <!-- Arguments -->
+  <arg name="robot_namelist" default="($(arg first_tb3))"/>
+  <arg name="open_rviz" default="true"/>
+  <arg name="rtabmap_viz" default="true"/>
+  <arg name="move_forward_only" default="false"/>
+
+  <arg name="with_camera" default="true"/>
+  <arg name="localization" default="false"/>
+  <arg name="database_path" default="~/.ros/rtabmap"/>
+  <arg     if="$(arg localization)" name="rtabmap_args" default=""/>
+  <arg unless="$(arg localization)" name="rtabmap_args" default="-d"/>
+
+<group ns="rtabmap_0">
+    <node if="$(eval model=='waffle')" pkg="rtabmap_sync" type="rgbd_sync" name="rgbd_sync" output="screen">
+      <remap from="rgb/image"         to="/tb3_0/camera/rgb/image_raw"/>
+      <remap from="depth/image"       to="/tb3_0/camera/depth/image_raw"/>
+      <remap from="rgb/camera_info"   to="/tb3_0/camera/rgb/camera_info"/>
+      <param name="approx_sync"         type="bool"   value="false"/>
+    </node>
+
+    <node name="rtabmap" pkg="rtabmap_slam" type="rtabmap" output="screen" args="$(arg rtabmap_args)">
+      <param name="database_path"       type="string" value="$(arg database_path)_0.db"/>
+      <param name="frame_id"            type="string" value="/tb3_0/base_footprint"/>
+      <param name="subscribe_depth" type="bool" value="false"/>
+      <param name="subscribe_rgb" type="bool" value="false"/>
+      <param name="subscribe_rgbd" type="bool" value="true"/>
+      <param name="subscribe_scan"      type="bool"   value="false"/>
+      <param name="Grid/FromDepth"            type="string" value="true"/>
+
+      <remap from="odom"            to="/tb3_0/odom"/>
+      <remap from="rgbd_image"       to="rgbd_image"/>     
+      <remap from="scan"            to="/tb3_0/scan"/>
+
+      <remap from="grid_map" to="/total_map"/>
+
+      <param name="RGBD/AngularUpdate"        type="string" value="0.01"/>
+      <param name="RGBD/LinearUpdate"         type="string" value="0.01"/>
+      <param name="RGBD/OptimizeFromGraphEnd" type="string" value="false"/>
+      <param name="Optimizer/Strategy" type="string" value="0"/>
+      <param name="Optimizer/VarianceIgnored" type="string" value="true"/>
+      
+      
+
+      <!-- localization mode -->
+      <param     if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="false"/>
+      <param unless="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
+    </node>
+
+    <!-- visualization with rtabmap_viz -->
+    <node if="$(arg rtabmap_viz)" pkg="rtabmap_viz" type="rtabmap_viz" name="rtabmap_viz" args="-d $(find rtabmap_demos)/launch/config/rgbd_gui.ini" output="screen">
+      <param name="subscribe_odom"   type="bool"   value="true"/>
+      <param name="subscribe_scan"   type="bool"   value="false"/>
+      <param name="frame_id"         type="string" value="/tb3_0/base_footprint"/>
+      <param name="approx_sync"      type="bool"   value="false"/>
+      <remap from="odom"            to="/tb3_0/odom"/>
+      <remap from="scan"            to="/tb3_0/scan"/>
+    </node>
+  </group>
+
+  <!-- rviz -->
+  <group if="$(arg open_rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find multi_explore)/rviz/single.rviz"/>
+  </group>
+
+    <node pkg="multi_explore" type="assigner.py" name="assigner" output="screen">
+    <param name="robot_namelist" value="$(arg first_tb3)"/>
+    <param name="tb3_0_x" value="$(arg first_tb3_x_pos)"/>
+    <param name="tb3_0_y" value="$(arg first_tb3_x_pos)"/>
+    <param name="assign_rate" value="$(arg assign_rate)"/>
+  </node>
+
+  <node pkg="multi_explore" type="robot_control.py" name="$(arg first_tb3)_controller" output="screen">
+    <param name="robot_name" value="$(arg first_tb3)"/>
+  </node>
+
+
+</launch>
