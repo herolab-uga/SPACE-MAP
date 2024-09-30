@@ -18,9 +18,17 @@ The package has been tested on both ROS Noetic for both simulated and hardware T
 
 1. **ROS Installation**: You should have installed a ROS distribution (Noetic) on Ubuntu 20.04.
 2. **Workspace Creation**: Make sure you have created a ROS workspace. You can follow the ROS [tutorial](http://wiki.ros.org/catkin/Tutorials/create_a_workspace) to do this.
-3. **Install `rtabmap` ROS Package**: Install the `rtabmap` package with the following command:
+3. **Install `rtabmap` &  `kimera-multi` ROS Packages **: Install the `rtabmap` and  `kimera-multi` package with the following command:
     ```bash
     sudo apt-get install ros-noetic-rtabmap-ros
+    mkdir -p catkin_ws/src
+    cd catkin_ws/src/
+    git clone git@github.com:MIT-SPARK/Kimera-Multi.git kimera_multi
+    sudo bash kimera_multi/install/dependencies.sh
+    vcs import . --input kimera_multi/kimera_multi.repos --recursive
+    cd ..
+    catkin config -a --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DGTSAM_TANGENT_PREINTEGRATION=OFF -DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF -DOPENGV_BUILD_WITH_MARCH_NATIVE=OFF
+    catkin build --continue -s
     ```
 4. **Install ROS Navigation Stack**: You can install the ROS navigation stack using the following command:
     ```bash
