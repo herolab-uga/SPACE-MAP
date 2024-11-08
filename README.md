@@ -98,7 +98,7 @@ target_name = namespace of robots which is in field-of-view
 - `/{target_name}/masker/masked_image_raw`: Features are masked and republished for mapping.
 
 ## Launch
-afsd
+Run one of the example launch files included in this ROS package. For instance, 
 
     ```bash
     roslaunch <package_name> 3_house.launch
