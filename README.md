@@ -5,16 +5,18 @@ This repository contains the ROS package that implements the works from the algo
 
 
 ### Publication/Citation
-If you use this work, please cite our paper: 
-Preprint available at 
+Preprint is available at https://arxiv.org/abs/2411.02524
 
-### Experiemental Demonstration and Video
+If you use this work, please cite our paper as 
+Ghanta, S. K., & Parasuraman, R. (2024). SPACE: 3D Spatial Co-operation and Exploration Framework for Robust Mapping and Coverage with Multi-Robot Systems. arXiv preprint arXiv:2411.02524.
+
+### Experimental Demonstration and Video
 https://github.com/user-attachments/assets/9c5ea52c-aa25-4c85-b8a9-539fb61f3168
 
 
 
 ## 1. Requirements & Environment Setup
-The package has been tested on both ROS Noetic for both simulated and hardware Turtlebot3 robot (waffle) & Turtlebot2 (2e and 2i). The following requirements are needed before installing the package:
+The package has been tested on ROS Noetic for both simulated and hardware Turtlebot3 robot (waffle) & Turtlebot2 (2e and 2i). The following requirements are needed before installing the package:
 
 1. **ROS Installation**: You should have installed a ROS distribution (Noetic) on Ubuntu 20.04.
 2. **Workspace Creation**: Make sure you have created a ROS workspace. You can follow the ROS [tutorial](http://wiki.ros.org/catkin/Tutorials/create_a_workspace) to do this.
